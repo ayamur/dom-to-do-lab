@@ -3,12 +3,12 @@ console.dir("padded room time WOOO!")
 //// 1. Add an `h1` element to the HTML. Give the h1 text of **To-do List:**
 //// 2. Add an `input` element to the HTML. Give it an `id` of your choice. Give it an attribute of `type` with a value of `text`
 
-inputEl = document.getElementById("task")
-subBtnEl = document.getElementById("submit-button")
-ulEl = document.getElementById("todo-list")
+const inputEl = document.getElementById("task")
+const subBtnEl = document.getElementById("submit-button")
+const ulEl = document.getElementById("todo-list")
 
 // console.log(inputEl)
-// console.log(subBtnEl)
+//console.log(subBtnEl)
 // console.log(ulEl)
 
 
@@ -17,13 +17,20 @@ ulEl = document.getElementById("todo-list")
 ////cached element reference id todo-list
 ////(one for the input, button and ul)
 
-subBtnEl.addEventListener("click")
+subBtnEl.addEventListener('click', function(event) {
+  const li = document.createElement("li")
+  li.textContent = inputEl.value
+  document.querySelector('ul').appendChild(li)
+  inputEl.value = "";
+})
 
 //add an event listener to the button that listen to click events. When the button is clicked, we need to:
     //create a new li element
     //set the text of the newly created li element to the text that the user has entered into the input element
     //reset the text in the input field to an empty string
     //add the new li element to the page, inside the ul element
+
+
 
 //Level-Ups
   //Don’t Allow Empty Items to be Added to the To-do List
